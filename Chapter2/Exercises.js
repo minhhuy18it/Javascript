@@ -21,5 +21,15 @@ for (let i = 0; i < 101; i ++) {
 }
 
 //Chessboard
-
+var total = (8 * 8) + 8;
+var a = "";
+for (i = 0; i < total; i++) {
+  if (i % (8 + 1) == 0)
+    a += "\n";
+  else if (i % 2 == 0)
+    a += "#";
+  else
+    a += " ";
+}
+console.log(a);
   
