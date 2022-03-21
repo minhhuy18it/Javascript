@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>😤</p>
+</body>
+    <script>
+        const maximumPossibleSize = 50;
+    
+        let balloon = document.querySelector("p");
+        let originalFontSize = 15;
+        balloon.style.fontSize = originalFontSize + "px";
+    
+        function growBalloon() {    
+            originalFontSize += originalFontSize * 0.1;
+
+            if (originalFontSize > maximumPossibleSize) {
+                balloon.textContent = "😡";
+                window.removeEventListener("keydown", changeBalloon);
+            }
+            else {
+                balloon.style.fontSize = originalFontSize + "px";
+            }
+        }
+
+        function shrinkBalloon() {
+            originalFontSize -= originalFontSize * 0.1;
+            balloon.style.fontSize = originalFontSize + "px";
+        }
+
+        function changeBalloon(event) {
+            if (event.key === "ArrowUp") {
+                growBalloon();
+                event.preventDefault();
+            }
+            else if (event.key === "ArrowDown") {
+                shrinkBalloon();
+                event.preventDefault();
+            }
+        }
+
+        window.addEventListener("keydown", changeBalloon);
+    </script>
+</html>
